@@ -1,1 +1,454 @@
-https://drive.google.com/file/d/187FbxAPT5YK86rpFEcWMx5ZMhUEZ41SH/view?usp=sharing
+from django.db import models
+
+# Create your models here.
+from model_utils import Choices
+
+
+class Mchildbiosurvey(models.Model):
+    # TODO: all leave blank, no data
+    id = models.AutoField(primary_key=True)
+    sampleid_fk = models.CharField(max_length=7, unique=True, null=True, verbose_name=u"Sample ID")
+    specimen_id_fk = models.CharField(max_length=4, blank=True, null=True, verbose_name=u"Specimen ID")
+    child_ur6_status = models.CharField(max_length=50, blank=True, null=True, verbose_name="Child_ur6_status")
+    child_ur6_date = models.DateField(blank=True, null=True, verbose_name=u"Child_ur6_date")
+    child_ur6_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"child_ur6_incentive_date")
+    child_ur7_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"child_ur7_status")
+    child_ur7_date = models.DateField(blank=True, null=True, verbose_name=u'child_ur7_date')
+    child_ur7_incentive_date = models.DateField(blank=True, null=True, verbose_name=u'child_ur7_incentive_date')
+    child_hair_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u'child_hair_status')
+    child_hair_kit = models.DateField(blank=True, null=True, verbose_name=u"child_hair_kit")
+    child_hair_date = models.DateField(blank=True, null=True, verbose_name=u"child_hair_date")
+    child_hair_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"child_hair_incentive_date")
+    child_ec_toenails_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"child_ec_toenails_status")
+    child_ec_toenails_date = models.DateField(blank=True, null=True, verbose_name=u"child_ec_toenails_date")
+    child_ec_toenails_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"child_ec_toenails_incentive_date")
+    child_3m_toenails_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"child_3m_toenails_status")
+    child_3m_toenails_date = models.DateField(blank=True, null=True, verbose_name=u"child_3m_toenails_date")
+    child_3m_toenails_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"child_3m_toenails_incentive_date")
+    child_3m_stool_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"child_3m_stool_status")
+    child_3m_stool_date = models.DateField(blank=True, null=True, verbose_name=u"child_3m_stool_date")
+    child_saliva_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"child_saliva_status")
+    child_saliva_date = models.DateField(blank=True, null=True, verbose_name=u"child_saliva_date")
+    child_saliva_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"child_saliva_incentive_date")
+    tooth_1_id = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"tooth_1_id")
+    tooth_1_kit_sent = models.DateField(blank=True, null=True, verbose_name=u"tooth_1_kit_sent")
+    tooth_1_received = models.DateField(blank=True, null=True, verbose_name=u"tooth_1_received")
+    tooth_1_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"tooth_1_incentive_date")
+    tooth_2_id = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"tooth_2_id")
+    tooth_2_kit_sent = models.DateField(blank=True, null=True, verbose_name=u"tooth_2_kit_sent")
+    tooth_2_received = models.DateField(blank=True, null=True, verbose_name=u"tooth_2_received")
+    tooth_2_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"tooth_2_incentive_date")
+    tooth_3_id = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"tooth_3_id")
+    tooth_3_kit_sent = models.DateField(blank=True, null=True, verbose_name=u"tooth_3_kit_sent")
+    tooth_3_received = models.DateField(blank=True, null=True, verbose_name=u"tooth_3_received")
+    tooth_3_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"tooth_3_incentive_date")
+    tooth_4_id = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"tooth_4_id")
+    tooth_4_kit_sent = models.DateField(blank=True, null=True, verbose_name=u"tooth_4_kit_sent")
+    tooth_4_received = models.DateField(blank=True, null=True, verbose_name=u"tooth_4_received")
+    tooth_4_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"tooth_4_incentive_date")
+    tooth_5_id = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"tooth_5_id")
+    tooth_5_kit_sent = models.DateField(blank=True, null=True, verbose_name=u"tooth_5_kit_sent")
+    tooth_5_received = models.DateField(blank=True, null=True, verbose_name=u"tooth_5_received")
+    tooth_5_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"tooth_5_incentive_date")
+    middle_childhood_hair_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"middle_childhood_hair_status")
+    middle_childhood_hair_kit = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_hair_kit")
+    middle_childhood_hair_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_hair_date")
+    middle_childhood_hair_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_hair_incentive_date")
+    middle_childhood_toenails_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"middle_childhood_toenails_status")
+    middle_childhood_toenails_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_toenails_date")
+    middle_childhood_toenails_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_toenails_incentive_date")
+    middle_childhood_saliva_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"middle_childhood_saliva_status")
+    middle_childhood_saliva_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_saliva_date")
+    middle_childhood_saliva_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"middle_childhood_saliva_incentive_date")
+
+    class Meta:
+        managed = True
+        db_table = 'march_child_bio_st'
+        verbose_name_plural = 'MARCH Child Bio Survey'
+
+    def __str__(self):
+        return str(self.id)
+
+class Mmotherbiosurvey(models.Model):
+    id = models.AutoField(primary_key=True)
+    specimen_id_fk = models.CharField(max_length=4, unique=True, null=True, verbose_name=u"specimen_id_fk")
+    mother_se1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_se1_status")
+    mother_se1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_se1_date")
+    mother_se2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_se2_status")
+    mother_se2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_se2_date")
+    mother_pl1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_pl1_status")
+    mother_pl1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_pl1_date")
+    mother_pl2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_pl2_status")
+    mother_pl2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_pl2_date")
+    mother_bs1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_bs1_status")
+    mother_bs1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_bs1_date")
+    mother_bs2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_bs2_status")
+    mother_bs2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_bs2_date")
+    mother_wb1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_wb1_status")
+    mother_wb1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_wb1_date")
+    mother_wb2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_wb2_status")
+    mother_wb2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_wb2_date")
+    mother_buffy1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_buffy1_status")
+    mother_buffy1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_buffy1_date")
+    mother_buffy2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_buffy2_status")
+    mother_buffy2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_buffy2_date")
+    mother_rbc_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_rbc_status")
+    mother_rbc_date = models.DateField(blank=True, null=True, verbose_name=u"mother_rbc_date")
+    mother_rbc2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_rbc2_status")
+    mother_rbc2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_rbc2_date")
+    mother_ur1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_ur1_status")
+    mother_ur1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur1_date")
+    mother_ur2_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_ur2_status")
+    mother_ur2_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur2_date")
+    mother_ur3_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_ur3_status")
+    mother_ur3_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur3_date")
+    mother_ur6_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_ur6_status")
+    mother_ur6_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur6_date")
+    mother_ur6_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur6_incentive_date")
+    mother_ur7_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_ur7_status")
+    mother_ur7_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur7_date")
+    mother_ur7_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_ur7_incentive_date")
+    mother_hair_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_hair_status")
+    mother_hair_date = models.DateField(blank=True, null=True, verbose_name=u"mother_hair_date")
+    mother_hair_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_hair_incentive_date")
+    mother_toenails_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_toenails_status")
+    mother_toenails_date = models.DateField(blank=True, null=True, verbose_name=u"mother_toenails_date")
+    mother_toenails_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_toenails_incentive_date")
+    mother_saliva_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_saliva_status")
+    mother_saliva_date = models.DateField(blank=True, null=True, verbose_name=u"mother_saliva_date")
+    mother_saliva_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_saliva_incentive_date")
+    mother_pc1_status = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_pc1_status")
+    mother_pc1_date = models.DateField(blank=True, null=True, verbose_name=u"mother_pc1_date")
+    mother_pc1_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"mother_pc1_incentive_date")
+
+    class Meta:
+        managed = True
+        db_table = 'march_mom_bio_st'
+        verbose_name_plural = 'MARCH Mother Bio Survey'
+
+    def __str__(self):
+        return str(self.id)
+
+
+class Mchildsurvey(models.Model):
+    id = models.AutoField(primary_key=True)
+    sampleid = models.CharField(max_length=7, unique=True, null=True, verbose_name=u"sampleid")
+    march_id_fk = models.CharField(max_length=6, null=True, verbose_name=u"march_id_fk")
+    ewcp_participant_id = models.CharField(max_length=15, blank=True, null=True, verbose_name=u"ewcp_participant_id")
+    participation_level_id = models.CharField(max_length=2, blank=True, null=True, verbose_name=u"participation_level_id")
+    echo_pin = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"echo_pin")
+    birth_date = models.DateField(blank=True, null=True, verbose_name=u"birth_date")
+    # TODO: babdy six with varchar(1)?
+    birth_sex = models.CharField(max_length=1, blank=True, null=True, verbose_name=u"birth_sex")
+    birth_name_first = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"birth_name_first")
+    birth_name_middle = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"birth_name_middle")
+    birth_name_last = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"birth_name_last")
+    child_birth_name = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"child_birth_name")
+    birth_name_suffix = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"birth_name_suffix")
+    birth_hospital = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"birth_hospital")
+    child_interviewer_comments = models.TextField(blank=True, null=True, verbose_name=u"child_interviewer_comments")
+    child_twin = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"child_twin")
+    three_month_survey_outcome = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"three_month_survey_outcome")
+    three_month_survey_date = models.DateField(blank=True, null=True, verbose_name=u"three_month_survey_date")
+    # TODO: nine month => drop down -> arch -DONE
+    survey_outcome = Choices('Complete Interview', 'CHARM Q Only Complete', 'REDCap Only Complete', 'Partial Complete',
+                             'NI, Reason Not Recorded', 'Refused Study Participation, Respondent',
+                             'Final Refusal, Respondent', 'NI, Other Reason', 'NI, Locating Exhausted',
+                             'NI, Deceased (Mom), Unable to Identify PCG', 'Unknown')
+    nine_month_survey_outcome = models.CharField(max_length=50, blank=True, choices=survey_outcome, null=True, verbose_name=u"nine_month_survey_outcome")
+    nine_month_survey_date = models.DateField(blank=True, null=True, verbose_name=u"nine_month_survey_date")
+    nine_month_incentive_sent = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"nine_month_incentive_sent")
+    nine_month_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"nine_month_incentive_date")
+    # TODO: two years => drop down -> arch - DONE
+    two_year_survey_outcome = models.CharField(max_length=200, blank=True, choices=survey_outcome, null=True, verbose_name=u"two_year_survey_outcome")
+    two_year_survey_date = models.DateField(blank=True, null=True, verbose_name=u"two_year_survey_date")
+    two_year_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"two_year_incentive_date")
+    # TODO: three years => drop down -> arch - DONE
+    # TODO: default max length 20 is too small to fit the longest value in choices; consider change to TextField
+    three_year_survey_outcome = models.CharField(max_length=200, blank=True, choices=survey_outcome, null=True, verbose_name=u"three_year_survey_outcome")
+    three_year_survey_date = models.DateField(blank=True, null=True, verbose_name=u"three_year_survey_date")
+    three_year_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"three_year_incentive_date")
+    four_year_survey_outcome = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"four_year_survey_outcome")
+    four_year_survey_date = models.DateField(blank=True, null=True, verbose_name=u"four_year_survey_date")
+    four_year_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"four_year_incentive_date")
+    five_year_survey_outcome = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"five_year_survey_outcome")
+    five_year_survey_date = models.DateField(blank=True, null=True, verbose_name=u"five_year_survey_date")
+    five_year_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"five_year_incentive_date")
+    six_year_survey_outcome = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"six_year_survey_outcome")
+    six_year_survey_date = models.DateField(blank=True, null=True, verbose_name=u"six_year_survey_date")
+    six_year_incentive_date = models.DateField(blank=True, null=True, verbose_name=u"six_year_incentive_date")
+    # TODO: wait for Alexa
+    ipa_date = models.DateField(blank=True, null=True, verbose_name=u"ipa_date")
+    ipa_status = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"ipa_status")
+    ipa_incentive = models.DateField(blank=True, null=True, verbose_name=u"ipa_incentive")
+    ipa_outcome = models.CharField(max_length=20, blank=True, null=True, verbose_name=u"ipa_outcome")
+
+    class Meta:
+        managed = True
+        db_table = 'march_child_st'
+        verbose_name_plural = 'MARCH Child Survey'
+
+    def __str__(self):
+        return str(self.sampleid)
+
+class Mmothersurvey(models.Model):
+    id = models.AutoField(primary_key=True)
+    march_id = models.CharField(max_length=6, unique=True, null=True, verbose_name=u"march_id")
+    ewcp_participant_id = models.CharField(max_length=15, blank=True, null=True, verbose_name=u"ewcp_participant_id")
+    participation_level_id = models.CharField(max_length=2, blank=True, null=True, verbose_name=u"participation_level_id")
+    echo_pin = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"echo_pin")
+    specimen_id = models.CharField(max_length=4, blank=True, unique=True, null=True, verbose_name=u"specimen_id")
+
+    mother_dob = models.DateField(blank=True, null=True, verbose_name=u"mother_dob")
+
+    survey_outcome = Choices('Complete Interview', 'CHARM Q Only Complete', 'REDCap Only Complete', 'Partial Complete',
+                             'NI, Reason Not Recorded', 'Refused Study Participation, Respondent',
+                             'Final Refusal, Respondent', 'NI, Other Reason', 'NI, Locating Exhausted',
+                             'NI, Deceased (Mom), Unable to Identify PCG', 'Unknown')
+    # TODO: leave pn1 and pn2
+    pn1_survey_outcome = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"pn1_survey_outcome")
+    pn2_survey_outcome = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"pn2_survey_outcome")
+    # TODO: pn3 choices follow arch - DONE
+    pn3_survey_outcome = models.CharField(max_length=200, blank=True, choices=survey_outcome, null=True, verbose_name=u"pn3_survey_outcome")
+
+    pn3_survey_date = models.DateField(blank=True, null=True, verbose_name=u"pn3_survey_date")
+    pn3_giftcard_date = models.DateField(blank=True, null=True, verbose_name=u"pn3_giftcard_date")
+
+    mother_first_name = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_first_name")
+    mother_nickname = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_nickname")
+    mother_last_name = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_last_name")
+    mother_last_name_enrollment = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"mother_last_name_enrollment")
+    mother_maiden_name = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"mother_maiden_name")
+
+    # TODO: make it Yes/No - DONE
+    choice_bool = Choices('Yes', 'No')
+    texting = models.CharField(max_length=3, blank=True, choices=choice_bool, null=True, verbose_name=u"texting")
+    recruitment_location = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"recruitment_location")
+
+    # TODO: leave consent version
+    consent_version = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"consent_version")
+
+    consent_date = models.DateField(db_column='consent_date', blank=True, null=True, verbose_name=u"consent_date")
+    due_date = models.DateField(db_column='due_date', blank=True, null=True, verbose_name=u"due_date")
+
+    cnsnt_motherurn = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_motherurn")
+    cnsnt_motherbld = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_motherbld")
+    cnsnt_placenta = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_placenta")
+    cnsnt_nailhairur = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_nailhairur")
+    cnsnt_birthcert = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_birthcert")
+    cnsnt_mdhhs = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_mdhhs")
+    cnsnt_childpoop = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_childpoop")
+    cnsnt_childteeth = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_childteeth")
+    cnsnt_srvhome = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_srvhome")
+    cnsnt_addrssb = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_addrssb")
+    cnsnt_childblood = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_childblood")
+    cnsnt_infoshare = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_infoshare")
+    cnsnt_addrss = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_addrss")
+    cnsnt_dna = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_dna")
+    cnsnt_othstudy = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_othstudy")
+    cnsnt_um = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_um")
+    cnsnt_social_media = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"cnsnt_social_media")
+    hipaa_mthrhsp = models.CharField(max_length=3, blank=True, null=True, verbose_name=u"hipaa_mthrhsp")
+    gift_card_pref = models.CharField(max_length=7, blank=True, null=True, verbose_name=u"gift_card_pref")
+
+    pcg_bool = models.CharField(max_length=3, blank=True, choices=choice_bool, null=True, verbose_name=u"pcg_bool")
+    pcg_name_first = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"pcg_name_first")
+    pcg_name_last = models.CharField(max_length=200, blank=True, null=True, verbose_name=u"pcg_name_last")
+
+    mother_gift_date = models.DateField(blank=True, null=True, verbose_name=u"mother_gift_date")
+
+    # TODO: leave contact preference
+    contact_preference = models.CharField(max_length=50, blank=True, null=True, verbose_name=u"contact_preference")
+    interviewer_comment = models.TextField(blank=True, null=True,verbose_name=u"interviewer_comment" )
+
+    class Meta:
+        managed = True
+        db_table = 'march_mom_st'
+        verbose_name_plural = 'MARCH Mother Survey'
+
+    def __str__(self):
+        return str(self.march_id)
+
+class Mcallnote(models.Model):
+    row_num = models.AutoField(db_column='row_num', primary_key=True)
+    SAMPLEID = models.CharField(db_column='SAMPLEID', blank=True, null=True, verbose_name=u"MARCH ID",
+                                  max_length=10)  # Field name made lowercase.
+    call_date = models.DateField( db_column='call_date', blank=False,verbose_name=u"Date of Call Note" )  # Field name made lowercase.
+    CALLNOTE = models.TextField(db_column='CALLNOTE', blank=True,verbose_name=u"Call Note",
+                                 null=True)  # Field name made lowercase.
+    type = models.CharField(max_length=25, db_column='type', blank=True, null=True)
+    initial = models.CharField(max_length=10, db_column='initial', blank=True, null=True,verbose_name=u"Please enter your initial")
+
+    class Meta:
+        managed = True
+        db_table = 'march_callnote'
+        verbose_name_plural = 'MARCH Call Note'
+
+    def __str__(self):
+        return str(self.SAMPLEID)
+
+
+class Mcontact(models.Model):
+    row_num = models.AutoField(db_column='row_num', primary_key=True)
+    responseid = models.CharField(db_column='ResponseID', blank=True, null=True,verbose_name=u"Qualtrics ID",max_length=30)  # Field name made lowercase.
+    responseset = models.CharField(max_length=20,db_column='ResponseSet', blank=True, null=True)  # Field name made lowercase.
+    ipaddress = models.CharField(max_length=20,db_column='IPAddress', blank=True, null=True)  # Field name made lowercase.
+    startdate = models.DateField(db_column='StartDate', blank=True, null=True,verbose_name=u"Survey Start date")  # Field name made lowercase.
+    enddate = models.DateField(db_column='EndDate', blank=True, null=True,verbose_name=u"Survey Start date")  # Field name made lowercase.
+    recipientlastname = models.IntegerField(db_column='RecipientLastName', blank=True, null=True)  # Field name made lowercase.
+    recipientfirstname = models.IntegerField(db_column='RecipientFirstName', blank=True, null=True)  # Field name made lowercase.
+    recipientemail = models.IntegerField(db_column='RecipientEmail', blank=True, null=True)  # Field name made lowercase.
+    externaldatareference = models.IntegerField(db_column='ExternalDataReference', blank=True, null=True)  # Field name made lowercase.
+    finished = models.BigIntegerField(db_column='Finished', blank=True, null=True)  # Field name made lowercase.
+    status = models.BigIntegerField(db_column='Status', blank=True, null=True)  # Field name made lowercase.
+    q1 = models.BigIntegerField(db_column='Q1', blank=True, null=True)  # Field name made lowercase.
+    q2_1_text = models.CharField(max_length=20,blank=True, null=True,verbose_name=u"First Name")  # Field name made lowercase.
+    q2_2_text = models.CharField(max_length=20,db_column='Q2_2_TEXT', blank=True, null=True,verbose_name=u"Middle Name")  # Field name made lowercase.
+    q2_3_text = models.CharField(max_length=20,db_column='Q2_3_TEXT', blank=True, null=True,verbose_name=u"Last Name")  # Field name made lowercase.
+    q47_1 = models.CharField(max_length=10,db_column='Q47_1', blank=True, null=True,verbose_name=u"Birth Month")  # Field name made lowercase.
+    q47_2 = models.BigIntegerField(db_column='Q47_2', blank=True, null=True,verbose_name=u"Birth Day")  # Field name made lowercase.
+    q47_3 = models.BigIntegerField(db_column='Q47_3', blank=True, null=True,verbose_name=u"Birth Year")  # Field name made lowercase.
+    q49_1_text = models.CharField(max_length=20,db_column='Q49_1_TEXT', blank=True, null=True,verbose_name=u"Child First Name")  # Field name made lowercase.
+    q49_2_text = models.CharField(max_length=20,db_column='Q49_2_TEXT', blank=True, null=True,verbose_name=u"Child Middle Name")  # Field name made lowercase.
+    q49_3_text = models.CharField(max_length=20,db_column='Q49_3_TEXT', blank=True, null=True,verbose_name=u"Child Last Name")  # Field name made lowercase.
+    q50_1 = models.TextField(db_column='Q50_1', blank=True, null=True, verbose_name=u"Child Birth Month")  # Field name made lowercase.
+    q50_2 = models.BigIntegerField(db_column='Q50_2', blank=True, null=True,verbose_name=u"Child Birth Day")  # Field name made lowercase.
+    q50_3 = models.BigIntegerField(db_column='Q50_3', blank=True, null=True,verbose_name=u"Child Birth Year")  # Field name made lowercase.
+    q6 = models.TextField(db_column='Q6', blank=True, null=True,verbose_name=u"Best Phone Number to Reach")  # Field name made lowercase.
+    q7 = models.TextField(db_column='Q7', blank=True, null=True,verbose_name=u"Do You Have Additional Home Phone or Work Phone")  # Field name made lowercase.
+    q8 = models.TextField(db_column='Q8', blank=True, null=True,verbose_name=u"Additional Phone NUmber")  # Field name made lowercase.
+    q9 = models.TextField(db_column='Q9', blank=True, null=True,verbose_name=u"Can we Text This Number")  # Field name made lowercase.
+    q10 = models.TextField(db_column='Q10', blank=True, null=True,verbose_name=u"Can we Viocemail This Number")  # Field name made lowercase.
+    q11_1 = models.TextField(db_column='Q11_1', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_2 = models.TextField(db_column='Q11_2', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_3 = models.TextField(db_column='Q11_3', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_4 = models.TextField(db_column='Q11_4', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_5 = models.TextField(db_column='Q11_5', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_6 = models.TextField(db_column='Q11_6', blank=True, null=True,verbose_name=u"Preferred Time")  # Field name made lowercase.
+    q11_7 = models.TextField(db_column='Q11_7', blank=True, null=True,verbose_name=u"Other Preferred Time")  # Field name made lowercase.
+    q11_7_text = models.TextField(db_column='Q11_7_TEXT', blank=True, null=True,verbose_name=u"Specify Other Preferred Time")  # Field name made lowercase.
+    q51 = models.TextField(db_column='Q51', blank=True, null=True,verbose_name=u"Additional Phone Number to Provide")  # Field name made lowercase.
+    q47 = models.TextField(db_column='Q47', blank=True, null=True,verbose_name=u"Additional Phone Number")  # Field name made lowercase.
+    q48 = models.TextField(db_column='Q48', blank=True, null=True,verbose_name=u"Can we Text This Phone")  # Field name made lowercase.
+    q49 = models.TextField(db_column='Q49', blank=True, null=True,verbose_name=u"Can we Viocemail This Number")  # Field name made lowercase.
+    q12_1_text = models.TextField(db_column='Q12_1_TEXT', blank=True, null=True,verbose_name=u"Address Line 1")  # Field name made lowercase.
+    q12_2_text = models.TextField(db_column='Q12_2_TEXT', blank=True, null=True,verbose_name=u"Address Line 2")  # Field name made lowercase.
+    q12_3_text = models.TextField(db_column='Q12_3_TEXT', blank=True, null=True,verbose_name=u"City")  # Field name made lowercase.
+    q12_4_text = models.TextField(db_column='Q12_4_TEXT', blank=True, null=True,verbose_name=u"State")  # Field name made lowercase.
+    q12_5_text = models.TextField(db_column='Q12_5_TEXT', blank=True, null=True,verbose_name=u"Zip")  # Field name made lowercase.
+    q13 = models.TextField(db_column='Q13', blank=True, null=True,verbose_name=u"Do you Plan to Move")  # Field name made lowercase.
+    q14_1_text = models.DateField(db_column='Q14_1_TEXT', blank=True, null=True,verbose_name=u"Move Date")  # Field name made lowercase.
+    q14_2_text = models.IntegerField(db_column='Q14_2_TEXT', blank=True, null=True,verbose_name=u"Address Line 1")  # Field name made lowercase.
+    q14_3_text = models.IntegerField(db_column='Q14_3_TEXT', blank=True, null=True,verbose_name=u"Address Line 2")  # Field name made lowercase.
+    q14_4_text = models.IntegerField(db_column='Q14_4_TEXT', blank=True, null=True,verbose_name=u"City")  # Field name made lowercase.
+    q14_5_text = models.IntegerField(db_column='Q14_5_TEXT', blank=True, null=True,verbose_name=u"State")  # Field name made lowercase.
+    q14_6_text = models.IntegerField(db_column='Q14_6_TEXT', blank=True, null=True,verbose_name=u"Zip")  # Field name made lowercase.
+    q15 = models.TextField(db_column='Q15', blank=True, null=True)  # Field name made lowercase.
+    q16 = models.TextField(db_column='Q16', blank=True, null=True)  # Field name made lowercase.
+    q17 = models.TextField(db_column='Q17', blank=True, null=True)  # Field name made lowercase.
+    q18 = models.BigIntegerField(db_column='Q18', blank=True, null=True)  # Field name made lowercase.
+    q19_1_text = models.TextField(db_column='Q19_1_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q19_2_text = models.TextField(db_column='Q19_2_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q20 = models.TextField(db_column='Q20', blank=True, null=True)  # Field name made lowercase.
+    q21 = models.TextField(db_column='Q21', blank=True, null=True)  # Field name made lowercase.
+    q22 = models.TextField(db_column='Q22', blank=True, null=True)  # Field name made lowercase.
+    q23_1_text = models.TextField(db_column='Q23_1_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q23_2_text = models.IntegerField(db_column='Q23_2_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q23_3_text = models.TextField(db_column='Q23_3_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q23_4_text = models.TextField(db_column='Q23_4_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q23_5_text = models.TextField(db_column='Q23_5_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q24 = models.TextField(db_column='Q24', blank=True, null=True)  # Field name made lowercase.
+    q26_1_text = models.TextField(db_column='Q26_1_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q26_2_text = models.TextField(db_column='Q26_2_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q27 = models.TextField(db_column='Q27', blank=True, null=True)  # Field name made lowercase.
+    q28 = models.TextField(db_column='Q28', blank=True, null=True)  # Field name made lowercase.
+    q29 = models.TextField(db_column='Q29', blank=True, null=True)  # Field name made lowercase.
+    q30_1_text = models.IntegerField(db_column='Q30_1_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q30_2_text = models.IntegerField(db_column='Q30_2_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q30_3_text = models.IntegerField(db_column='Q30_3_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q30_4_text = models.IntegerField(db_column='Q30_4_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q30_5_text = models.IntegerField(db_column='Q30_5_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q31 = models.TextField(db_column='Q31', blank=True, null=True)  # Field name made lowercase.
+    q32_1_text = models.TextField(db_column='Q32_1_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q32_2_text = models.TextField(db_column='Q32_2_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q32_3_text = models.TextField(db_column='Q32_3_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q33 = models.TextField(db_column='Q33', blank=True, null=True)  # Field name made lowercase.
+    q34 = models.BigIntegerField(db_column='Q34', blank=True, null=True)  # Field name made lowercase.
+    q35 = models.IntegerField(db_column='Q35', blank=True, null=True)  # Field name made lowercase.
+    q35_text = models.TextField(db_column='Q35_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q35_1 = models.TextField(db_column='Q35_1', blank=True, null=True)  # Field name made lowercase.
+    q51_1 = models.TextField(db_column='Q51_1', blank=True, null=True)  # Field name made lowercase.
+    q50_4_text = models.BigIntegerField(db_column='Q50_4_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q50_5_text = models.BigIntegerField(db_column='Q50_5_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q37_1 = models.TextField(db_column='Q37_1', blank=True, null=True)  # Field name made lowercase.
+    q37_2 = models.TextField(db_column='Q37_2', blank=True, null=True)  # Field name made lowercase.
+    q37_3 = models.TextField(db_column='Q37_3', blank=True, null=True)  # Field name made lowercase.
+    q53 = models.TextField(db_column='Q53', blank=True, null=True)  # Field name made lowercase.
+    q38 = models.TextField(db_column='Q38', blank=True, null=True)  # Field name made lowercase.
+    q54 = models.TextField(db_column='Q54', blank=True, null=True)  # Field name made lowercase.
+    q39 = models.TextField(db_column='Q39', blank=True, null=True)  # Field name made lowercase.
+    q40 = models.TextField(db_column='Q40', blank=True, null=True)  # Field name made lowercase.
+    q41_1 = models.TextField(db_column='Q41_1', blank=True, null=True)  # Field name made lowercase.
+    q41_2 = models.TextField(db_column='Q41_2', blank=True, null=True)  # Field name made lowercase.
+    q41_3 = models.TextField(db_column='Q41_3', blank=True, null=True)  # Field name made lowercase.
+    q41_4 = models.TextField(db_column='Q41_4', blank=True, null=True)  # Field name made lowercase.
+    q41_5 = models.TextField(db_column='Q41_5', blank=True, null=True)  # Field name made lowercase.
+    q41_6 = models.TextField(db_column='Q41_6', blank=True, null=True)  # Field name made lowercase.
+    q41_7 = models.TextField(db_column='Q41_7', blank=True, null=True)  # Field name made lowercase.
+    q41_7_text = models.TextField(db_column='Q41_7_TEXT', blank=True, null=True)  # Field name made lowercase.
+    q42 = models.TextField(db_column='Q42', blank=True, null=True)  # Field name made lowercase.
+    q55 = models.TextField(db_column='Q55', blank=True, null=True)  # Field name made lowercase.
+    q43 = models.TextField(db_column='Q43', blank=True, null=True)  # Field name made lowercase.
+    locationlatitude = models.FloatField(db_column='LocationLatitude', blank=True, null=True)  # Field name made lowercase.
+    locationlongitude = models.FloatField(db_column='LocationLongitude', blank=True, null=True)  # Field name made lowercase.
+    locationaccuracy = models.BigIntegerField(db_column='LocationAccuracy', blank=True, null=True)  # Field name made lowercase.
+    sampleid = models.CharField(max_length=6,db_column='SAMPLEID', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = True
+        db_table = 'mcontact'
+        verbose_name_plural = 'MARCH Contact Survey'
+
+    def __str__(self):
+        return str(self.responseid)
+
+class Mcontactinfo(models.Model):
+    row_num = models.AutoField(db_column='row_num', primary_key=True)
+    SAMPLEID = models.CharField(max_length=10, db_column='SAMPLEID', blank=False, null=False,verbose_name=u"MARCH ID")
+    currdate = models.DateField( db_column='currdate', blank=False,verbose_name=u"Date of contact information" )
+    address = models.TextField( db_column='address', blank=True, null=True,verbose_name=u"Address" )
+    choice_social =  Choices('Yes', 'No')
+    move_home = models.CharField(db_column='move_home',choices=choice_social, max_length=10, blank=True, null=True,verbose_name=u"Plan to move home")
+    move_home_address =models.TextField(db_column='move_home_address', blank=True, null=True,
+                                          verbose_name=u"New address plan to move")
+    move_home_date = models.DateField(db_column='move_home_date',blank=True, null=True, verbose_name=u"Date of moving to new home")
+    phone_num = models.CharField(max_length=30, db_column='phone_num', blank=True, null=True,verbose_name=u"Primary Phone Number")
+    text_permission=models.CharField(max_length=5, db_column='text_permission', blank=True, null=True,verbose_name=u"Permission to text this number")
+    other_phone = models.CharField(max_length=30, db_column='other_phone', blank=True, null=True,verbose_name=u"Additional Phone Number")
+    other_text_permission = models.CharField(max_length=5, db_column='other_text_permission', blank=True, null=True,verbose_name=u"Permission to text this number")
+    email=models.TextField( db_column='email', blank=True, null=True,verbose_name=u"Email Address" )
+    prefer_c = Choices('Text', 'Email', 'call', 'Any of the above')
+    prefer_contact = models.CharField(db_column='prefer_contact',choices=prefer_c, max_length=20, blank=True, null=True,
+                                     verbose_name=u"Preferred contact method")
+    contact_a=models.TextField( db_column='contact_a', blank=True, null=True,verbose_name=u"Alternate contact name" )
+    contact_aphone=models.CharField(max_length=30, db_column='contact_aphone', blank=True, null=True,verbose_name=u"Phone number of alternate contact")
+    contact_b = models.TextField( db_column='contact_b', blank=True, null=True,verbose_name=u"Other alternate contact name" )
+    contact_bphone = models.CharField(max_length=30, db_column='contact_bphone', blank=True, null=True,verbose_name=u"Phone number of alternate contact")
+    social_media = models.CharField(db_column='social_media',choices=choice_social, max_length=10, blank=True, null=True,
+                                     verbose_name=u"Follow social media")
+    facebook = models.CharField(max_length=150, db_column='facebook', blank=True, null=True, verbose_name=u"Facebook")
+    Instagram = models.CharField(max_length=150, db_column='Instagram', blank=True, null=True, verbose_name=u"Instagram")
+    Twitter = models.CharField(max_length=150, db_column='Twitter', blank=True, null=True, verbose_name=u"Twitter")
+    source= models.CharField(max_length=30, db_column='source', blank=True, null=True,verbose_name=u"Source of the contact information")
+    checkbbb = Choices('Unknown','Yes', 'No')
+    PCG = models.CharField(choices=checkbbb,default=checkbbb.Unknown, max_length=20,blank=True, null=True)
+    initial = models.CharField(max_length=10, db_column='initial', blank=True, null=True,verbose_name=u"Please enter your initial")
+    qualtrics_id = models.CharField(max_length=50, db_column='qualtrics_id', blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'march_all_contact'
+        verbose_name_plural='MARCH All Contact Information'
+
+    def __str__(self):
+        return str(self.SAMPLEID)
